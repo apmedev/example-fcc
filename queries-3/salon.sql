@@ -51,7 +51,7 @@ CREATE TABLE public.appointments (
     appointment_id integer NOT NULL,
     customer_id integer,
     service_id integer,
-    "time" character varying(10)
+    "time" character varying(20) NOT NULL
 );
 
 
@@ -85,8 +85,8 @@ ALTER SEQUENCE public.appointments_appointment_id_seq OWNED BY public.appointmen
 
 CREATE TABLE public.customers (
     customer_id integer NOT NULL,
-    name character varying(50),
-    phone character varying(20)
+    phone character varying(15),
+    name character varying(50)
 );
 
 
@@ -173,43 +173,19 @@ ALTER TABLE ONLY public.services ALTER COLUMN service_id SET DEFAULT nextval('pu
 -- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.appointments VALUES (1, 1, 1, '1212');
-INSERT INTO public.appointments VALUES (2, 2, 5, '1212');
-INSERT INTO public.appointments VALUES (78, 56, 1, '15:55');
-INSERT INTO public.appointments VALUES (79, 56, 1, '15:55');
-INSERT INTO public.appointments VALUES (9, 8, 1, '1212');
-INSERT INTO public.appointments VALUES (16, 14, 3, '1212');
-INSERT INTO public.appointments VALUES (17, 16, 2, '121212');
-INSERT INTO public.appointments VALUES (18, 18, 5, '1212');
-INSERT INTO public.appointments VALUES (19, 20, 1, '8585');
-INSERT INTO public.appointments VALUES (20, 21, 3, '8569');
-INSERT INTO public.appointments VALUES (21, 22, 3, '3213');
-INSERT INTO public.appointments VALUES (22, 23, 2, '9089');
-INSERT INTO public.appointments VALUES (23, 23, 2, '9089');
-INSERT INTO public.appointments VALUES (24, 24, 1, '1212112');
-INSERT INTO public.appointments VALUES (25, 24, 1, '1212112');
-INSERT INTO public.appointments VALUES (26, 25, 4, '6598');
-INSERT INTO public.appointments VALUES (27, 25, 4, '6598');
+INSERT INTO public.appointments VALUES (9, 19, 1, '10:30');
+INSERT INTO public.appointments VALUES (136, 19, 4, '10:30');
+INSERT INTO public.appointments VALUES (149, 19, 1, '10:30');
+INSERT INTO public.appointments VALUES (66, 19, 1, '10:30');
 
 
 --
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.customers VALUES (1, 'ararr', '1111');
-INSERT INTO public.customers VALUES (2, 'arrr', '3222222');
-INSERT INTO public.customers VALUES (8, 'dasd', '333');
-INSERT INTO public.customers VALUES (14, 'asdasd', '44');
-INSERT INTO public.customers VALUES (15, 'sdas', '2222');
-INSERT INTO public.customers VALUES (16, 'assasa', '22222');
-INSERT INTO public.customers VALUES (18, 'pppp', '7777');
-INSERT INTO public.customers VALUES (20, 'lol', '23232');
-INSERT INTO public.customers VALUES (21, 'poopy', '698968');
-INSERT INTO public.customers VALUES (22, 'opopop', '565656');
-INSERT INTO public.customers VALUES (23, 'huuguygu', '5698569');
-INSERT INTO public.customers VALUES (24, 'hgfghfh', '21231321');
-INSERT INTO public.customers VALUES (25, 'poiopip', '5646545');
-INSERT INTO public.customers VALUES (56, 'oooo', '21321');
+INSERT INTO public.customers VALUES (22, '', '');
+INSERT INTO public.customers VALUES (122, '1', '555-5555');
+INSERT INTO public.customers VALUES (19, '-4444', 'Fabio');
 
 
 --
@@ -227,7 +203,7 @@ INSERT INTO public.services VALUES (5, 'trim');
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 89, true);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 78, true);
 
 
 --
@@ -241,7 +217,7 @@ SELECT pg_catalog.setval('public.customers_customer_id_seq', 62, true);
 -- Name: services_service_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.services_service_id_seq', 94, true);
+SELECT pg_catalog.setval('public.services_service_id_seq', 1, false);
 
 
 --
@@ -266,14 +242,6 @@ ALTER TABLE ONLY public.customers
 
 ALTER TABLE ONLY public.customers
     ADD CONSTRAINT customers_pkey PRIMARY KEY (customer_id);
-
-
---
--- Name: services services_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.services
-    ADD CONSTRAINT services_name_key UNIQUE (name);
 
 
 --
@@ -303,4 +271,3 @@ ALTER TABLE ONLY public.appointments
 --
 -- PostgreSQL database dump complete
 --
-
