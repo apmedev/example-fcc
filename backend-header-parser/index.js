@@ -32,19 +32,20 @@ var listener = app.listen(process.env.PORT || 3000, function () {
 const requestIp = require('request-ip');
 // inside middleware handler
 var ipMiddleware = function(req, res, next) {
- const clientIp = requestIp.getClientIp(req); 
- next();
+  const clientIp = requestIp.getClientIp(req);
+  next();
 };
+
 //As Connect Middleware
 app.use(requestIp.mw())
 
 app.get('/api/whoami', (req, res) => {
-  var ipadress = req.clientIp;
+  var ipaddress = req.clientIp;
   var language = req.acceptsLanguages();
-  var software=req.get('User-Agent');
-   res.json({
-   ipadress: ipadress,
-   language:language[0],
-   software:software
-   });
+  var software = req.get('User-Agent');
+  res.json({
+    ipaddress: ipaddress,
+    language: language[0],
+    software: software
+  });
 });
