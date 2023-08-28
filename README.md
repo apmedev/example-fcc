@@ -1,5 +1,6 @@
-# FreeCodeCamp Tasks:
-https://www.freecodecamp.org/ap92
-1. Celestial Bodies Database
-2. World Cup Database
-3. Salon Appointment Scheduler
+# FreeCodeCamp Tasks
+
+<https://www.freecodecamp.org/apmedev>
+
+1. relational-database-v8 *(queries)*
+2. back-end-development-and-apis *(backend-*)*
